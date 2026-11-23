@@ -1,0 +1,7 @@
+@PACKAGE_INIT@
+include("${CMAKE_CURRENT_LIST_DIR}/sxcli2Targets.cmake")
+if(NOT TARGET smithproxy_libcli)
+    add_library(smithproxy_libcli INTERFACE IMPORTED)
+    set_target_properties(smithproxy_libcli PROPERTIES INTERFACE_LINK_LIBRARIES sxcli2::sxcli2)
+endif()
+check_required_components(sxcli2)
